@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+</head>
+
+<script src="script.js" defer></script>
+<link rel="stylesheet" href="styles.css">
+
+<body>
+
+<h1 class="title">Etch-A-Sketch</h1>
+    
+<div id="gridContainer"></div>
+
+<script>
+    // grid Container for flexbox
+    const gridContainer = document.querySelector("#gridContainer");
+
+    //defining global variables we'd need for later
+    let grid;
+    createGrid(16, 16);
+    //function for future user input
+    function createGrid(dimensionX = 16, dimensionY = 16){
+        //loop to get the desired amount of squares
+        let totalSquares = dimensionX * dimensionY;
+        for (i = 0; i < totalSquares; i++) {
+            grid = document.createElement("div");
+            grid.className = "grid";
+            gridContainer.appendChild(grid);
+        }
+    }
+
+
+</script>
+</body>
+</html>
