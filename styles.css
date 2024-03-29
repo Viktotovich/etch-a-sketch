@@ -1,0 +1,22 @@
+#gridContainer {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 570px;
+    min-width: 570px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+    flex: 0 0 0;
+}
+
+.grid {
+    border: 1px black solid;
+    padding: 16px;
+    flex-wrap: wrap;
+}
+
+h1 {
+    color: blue;
+    margin: 0 auto;
+}
