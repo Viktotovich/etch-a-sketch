@@ -15,6 +15,12 @@
     
 <div id="gridContainer"></div>
 
+<div class="buttonsContainer">
+    <button class="rainbow">Rainbow Mode</button>
+    <button class="opacity">Opacity</button>
+    <div class="gridUserInput"><input class="gridSize"><button>Change Grid Size</button></div>
+</div>
+
 <script>
     // grid Container for flexbox
     const gridContainer = document.querySelector("#gridContainer");
@@ -22,6 +28,7 @@
     //defining global variables we'd need for later
     let grid;
     createGrid(16, 16);
+
     //function for future user input
     function createGrid(dimensionX = 16, dimensionY = 16){
         //loop to get the desired amount of squares
@@ -33,6 +40,24 @@
         }
     }
 
+    // Event listener for draw
+    gridContainer.addEventListener("mouseover", draw)
+
+    //get the current position of the mouse 
+    //Change the css property of the element of the div that the mouse is hovering over
+    //to make it colorful, make a loop of colors, and colors an array 
+    //each iteration, -x to go back to the starting color so the loop would be infinite 
+    
+    function getPosition() {
+  
+    }
+
+    function draw(e) {
+        let posX = e.clientX;
+        let posY = e.clientY;
+    }
+
+    
 
 </script>
 </body>
