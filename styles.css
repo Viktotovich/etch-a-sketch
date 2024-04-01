@@ -8,21 +8,17 @@
     flex: 0 0 1;
     align-items: center;
     justify-content: center;
-    margin: 100px auto 20px;
+    margin: 50px auto 20px;
     border: red solid 1px;
     
 }
 
-.grid {
-    border: 1px black solid;
-    padding: 16px;
-}
-
 h1 {
-    color: blue;
-    margin: 0 auto;
+    color: rebeccapurple;
+    margin: 20px auto 0;
     display: flex;
     justify-content: center;
+    background-color: beige;
 }
 
 .buttonsContainer {
@@ -31,16 +27,24 @@ h1 {
 }
 
 .rainbow,
-.opacity,
-.gridUserInput
-.normal {
-    margin: 0 15px;
+.reset,
+.gridUserInput,
+.normal,
+.eraser,
+.customColor {
+    margin: 0 25px;
 }
 
-.changed {
-    border: 1px black solid;
-    padding: 16px;
-    flex-wrap: wrap; 
-    background-color: black;
+.topButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+button {
+    background-color: beige;
+    border-radius: 12px;
+    width: 150px;
 }
 
