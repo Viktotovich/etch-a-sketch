@@ -51,7 +51,8 @@
 
     function draw(event) {
         if(event.target.className != "gridContainer") {
-        event.target.className = "changed";
+            //allows to override rainbow colors
+        event.target.style.backgroundColor  = "black";
         }
     }
 
@@ -63,11 +64,28 @@
         normalColor.innerHTML = "Normal Mode";
         normalColor.className = "normal"
         opacity.before(normalColor);
+
+        //added querySelector as upon 3rd button click, has a bug where creates multiple buttons
+        rainbow = document.querySelector(".rainbow");
         rainbow.remove();
+
         gridContainer.removeEventListener("mouseover", draw);
         //Re-add a rainbow event listener
         gridContainer.addEventListener("mouseover", drawRainbow);
-        // would need to make rainbow an appended DOM
+        // Adding functionality to the new Normal Mode button
+        normalColor.addEventListener("click", changeToNormal)
+    }
+
+    function changeToNormal() {
+        let rainbow = document.createElement("button");
+        rainbow.innerHTML = "Rainbow Mode";
+        rainbow.className = "rainbow";
+        opacity.before(rainbow);
+        let normalColor = document.querySelector(".normal");
+        normalColor.remove();
+        gridContainer.removeEventListener("mouseover", drawRainbow);
+        gridContainer.addEventListener("mouseover", draw);
+        rainbow.addEventListener("click", changeColors);
     }
 
     //for colorArrayChoice loop
@@ -82,7 +100,7 @@
                     colorArrayChoice = 0;
                 }
         }
-    } 
+    }
 
 
 
