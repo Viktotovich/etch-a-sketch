@@ -12,13 +12,18 @@
 <body>
 
 <h1 class="title">Etch-A-Sketch</h1>
-    
+
+<div class="topButton">
+    <button class="gridUserInput">Change Grid Size</button>
+</div>
+
 <div class="gridContainer"></div>
 
 <div class="buttonsContainer">
     <button class="rainbow">Rainbow Mode</button>
     <button class="opacity">Opacity</button>
-    <div class="gridUserInput"><input class="gridSize"><button>Change Grid Size</button></div>
+    <button class="eraser">Eraser</button>
+    <button class="customColor">Custom Color</button>
 </div>
 
 <script>
@@ -30,6 +35,10 @@
     createGrid(16, 16);
     let rainbow = document.querySelector(".rainbow");
     let opacity = document.querySelector(".opacity");
+    let gridUserInput = document.querySelector(".gridUserInput");
+    let gridSize = document.querySelector(".gridSize");
+    let eraser = document.querySelector(".eraser");
+    let customColor = document.querySelector(".customColor");
 
     //function for future user input
     function createGrid(dimensionX = 16, dimensionY = 16){
@@ -102,7 +111,50 @@
         }
     }
 
+   
+    eraser.addEventListener("click", () => {
+        gridContainer.removeEventListener("mouseover", draw);
+        gridContainer.removeEventListener("mouseover", drawRainbow);
+        gridContainer.addEventListener("mouseover", () => {
+            if(event.target.className != "gridContainer") {
+            event.target.style.backgroundColor = "White";
+        }
+        })
+    })
 
+    customColor.addEventListener("click", userColorSelection)
+
+    function userColorSelection(color){
+        let colorInput = prompt("What color would you like to select? ", "");
+            if (colorInput == '' || colorInput == null || colorInput == undefined) {
+                //do nothing
+            } else {
+            color = colorInput.toLowerCase();
+            gridContainer.addEventListener("mouseover", () => {
+                if(event.target.className != "gridContainer") {
+                event.target.style.backgroundColor = color;
+            }})
+            }
+
+    }
+
+
+    gridUserInput.addEventListener("click", () => {
+        alert("Please read the next messages carefully, as we are going to ask you the dimension for your new grid");
+        promptUserDimension();
+    })
+
+
+    function promptUserDimension() {
+        let userChosenDimension = prompt("What dimensions would you like your new grid to have? ");
+        if (userChosenDimension == '' || userChosenDimension == null){
+            // do nothing
+        } else if (userChosenDimension > 100) {
+            alert("The chosen number is too high, max is a 100");
+        } else {
+        createGrid(userChosenDimension, userChosenDimension);
+        }
+    }
 
 </script>
 </body>
