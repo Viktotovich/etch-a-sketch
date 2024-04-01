@@ -23,11 +23,13 @@
 
 <script>
     // grid Container for flexbox
-    const gridContainer = document.querySelector("#gridContainer");
+    const gridContainer = document.querySelector(".gridContainer");
 
     //defining global variables we'd need for later
     let grid;
     createGrid(16, 16);
+    let rainbow = document.querySelector(".rainbow");
+    let opacity = document.querySelector(".opacity");
 
     //function for future user input
     function createGrid(dimensionX = 16, dimensionY = 16){
@@ -43,20 +45,27 @@
     // Event listener for draw
     gridContainer.addEventListener("mouseover", draw)
 
-    //get the current position of the mouse 
-    //Change the css property of the element of the div that the mouse is hovering over
     //to make it colorful, make a loop of colors, and colors an array 
     //each iteration, -x to go back to the starting color so the loop would be infinite 
     
 
     function draw(event) {
-        let posX = event.clientX;
-        let posY = event.clientY;
-        alert(event.target.);
+        if(event.target.className != "gridContainer") {
         event.target.className = "changed";
+        }
     }
 
+    // Event listener for rainbow
+    rainbow.addEventListener("click", changeColors)
     
+    function changeColors() {
+        const normalColor = document.createElement("button");
+        normalColor.innerHTML = "Normal Mode";
+        normalColor.className = "normal"
+        opacity.before(normalColor);
+        rainbow.remove();
+        // would need to make rainbow an appended DOM
+    }
 
 </script>
 </body>

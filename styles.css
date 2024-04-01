@@ -32,7 +32,8 @@ h1 {
 
 .rainbow,
 .opacity,
-.gridUserInput {
+.gridUserInput
+.normal {
     margin: 0 15px;
 }
 
