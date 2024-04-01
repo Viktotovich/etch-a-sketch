@@ -1,22 +1,45 @@
-#gridContainer {
+.gridContainer {
     display: flex;
     flex-wrap: wrap;
-    max-width: 570px;
-    min-width: 570px;
-    height: auto;
+    max-width: 544px;
+    min-width: 544px;
+    min-height: 544px;
+    max-height: 544px;
+    flex: 0 0 1;
     align-items: center;
     justify-content: center;
-    margin: 100px auto;
-    flex: 0 0 0;
+    margin: 100px auto 20px;
+    border: red solid 1px;
+    
 }
 
 .grid {
     border: 1px black solid;
     padding: 16px;
-    flex-wrap: wrap;
 }
 
 h1 {
     color: blue;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.rainbow,
+.opacity,
+.gridUserInput {
+    margin: 0 15px;
+}
+
+.changed {
+    border: 1px black solid;
+    padding: 16px;
+    flex-wrap: wrap; 
+    background-color: black;
+}
+
