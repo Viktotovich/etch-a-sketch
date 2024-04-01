@@ -8,14 +8,14 @@
     flex: 0 0 1;
     align-items: center;
     justify-content: center;
-    margin: 50px auto 20px;
+    margin: 30px auto 20px;
     border: red solid 1px;
     
 }
 
 h1 {
     color: rebeccapurple;
-    margin: 20px auto 0;
+    margin: 0 auto 0;
     display: flex;
     justify-content: center;
     background-color: beige;
