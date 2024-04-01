@@ -64,8 +64,25 @@
         normalColor.className = "normal"
         opacity.before(normalColor);
         rainbow.remove();
+        gridContainer.removeEventListener("mouseover", draw);
+        //Re-add a rainbow event listener
+        gridContainer.addEventListener("mouseover", drawRainbow);
         // would need to make rainbow an appended DOM
     }
+
+    function drawRainbow() {
+        if(event.target.className != "gridContainer") {
+            const colorArray = ["Red", "Blue", "Pink", "Purple", "Yellow", "Orange", "Green", "Orange"];
+            for (i = 0; i < colorArray.length; i++) {
+            event.target.style.backgroundColor  = (colorArray[i]);
+                if (i == colorArray.length) {
+                  i = i - colorArray.length;
+                 }
+        //colorCollection();
+        }
+    } 
+}
+
 
 </script>
 </body>
