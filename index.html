@@ -32,6 +32,7 @@
 
     //defining global variables we'd need for later
     let grid;
+    let totalSquares = 0;
     createGrid(16, 16);
     let rainbow = document.querySelector(".rainbow");
     let opacity = document.querySelector(".opacity");
@@ -40,13 +41,14 @@
     let eraser = document.querySelector(".eraser");
     let customColor = document.querySelector(".customColor");
 
-    //function for future user input
-    function createGrid(dimensionX = 16, dimensionY = 16){
+    function createGrid(dimensionX, dimensionY){
         //loop to get the desired amount of squares
-        let totalSquares = dimensionX * dimensionY;
+        totalSquares = dimensionX * dimensionY;
         for (i = 0; i < totalSquares; i++) {
             grid = document.createElement("div");
             grid.className = "grid";
+            grid.style.padding = (((544 / dimensionX) -2)/2) + "px";
+            grid.style.border = "black 1px solid";
             gridContainer.appendChild(grid);
         }
     }
@@ -140,7 +142,7 @@
 
 
     gridUserInput.addEventListener("click", () => {
-        alert("Please read the next messages carefully, as we are going to ask you the dimension for your new grid");
+        alert("Please read the next messages carefully, as we are going to ask you the dimension for your new grid. Take note: certain numbers may not work due to rounding errors in the calculations");
         promptUserDimension();
     })
 
@@ -152,7 +154,12 @@
         } else if (userChosenDimension > 100) {
             alert("The chosen number is too high, max is a 100");
         } else {
-        createGrid(userChosenDimension, userChosenDimension);
+        //find the existing squares, and eliminate them all
+        for (i = 0; i < totalSquares; i++) {
+            grid = document.querySelector(".grid");
+            grid.remove();
+            }
+            createGrid(userChosenDimension, userChosenDimension);
         }
     }
 
