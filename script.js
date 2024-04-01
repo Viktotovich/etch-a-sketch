@@ -62,7 +62,7 @@
      const normalColor = document.createElement("button");
      normalColor.innerHTML = "Normal Mode";
      normalColor.className = "normal"
-     opacity.before(normalColor);
+     reset.before(normalColor);
 
      //added querySelector as upon 3rd button click, has a bug where creates multiple buttons
      rainbow = document.querySelector(".rainbow");
@@ -79,7 +79,7 @@
      let rainbow = document.createElement("button");
      rainbow.innerHTML = "Rainbow Mode";
      rainbow.className = "rainbow";
-     opacity.before(rainbow);
+     reset.before(rainbow);
      let normalColor = document.querySelector(".normal");
      normalColor.remove();
      gridContainer.removeEventListener("mouseover", drawRainbow);
