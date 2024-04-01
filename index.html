@@ -70,18 +70,20 @@
         // would need to make rainbow an appended DOM
     }
 
+    //for colorArrayChoice loop
+    let colorArrayChoice = 0;
+
     function drawRainbow() {
         if(event.target.className != "gridContainer") {
             const colorArray = ["Red", "Blue", "Pink", "Purple", "Yellow", "Orange", "Green", "Orange"];
-            for (i = 0; i < colorArray.length; i++) {
-            event.target.style.backgroundColor  = (colorArray[i]);
-                if (i == colorArray.length) {
-                  i = i - colorArray.length;
-                 }
-        //colorCollection();
+            event.target.style.backgroundColor  = colorArray[colorArrayChoice];
+            colorArrayChoice += 1;
+                if (colorArrayChoice == colorArray.length) {
+                    colorArrayChoice = 0;
+                }
         }
     } 
-}
+
 
 
 </script>
