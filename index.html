@@ -33,6 +33,8 @@
     //defining global variables we'd need for later
     let grid;
     let totalSquares = 0;
+    let gridContainerSize = 544;
+
     createGrid(16, 16);
     let rainbow = document.querySelector(".rainbow");
     let opacity = document.querySelector(".opacity");
@@ -42,15 +44,30 @@
     let customColor = document.querySelector(".customColor");
 
     function createGrid(dimensionX, dimensionY){
-        //loop to get the desired amount of squares
+        //loop to avoid overflow, by making sure num is divisible
+        while ((gridContainerSize % dimensionX) != 0) {
+            gridContainerSize += 1;
+        }
+        setContainerSize(gridContainerSize);
         totalSquares = dimensionX * dimensionY;
+        
+        //loop to get the desired amount of squares
         for (i = 0; i < totalSquares; i++) {
             grid = document.createElement("div");
             grid.className = "grid";
-            grid.style.padding = (((544 / dimensionX) -2)/2) + "px";
+            grid.style.padding = (((gridContainerSize / dimensionX) -2)/2) + "px";
             grid.style.border = "black 1px solid";
             gridContainer.appendChild(grid);
         }
+    } 
+    
+    
+
+    function setContainerSize(size) {
+        gridContainer.style.maxWidth = gridContainerSize + "px";
+        gridContainer.style.minWidth = gridContainerSize + "px";
+        gridContainer.style.minHeight = gridContainerSize + "px";
+        gridContainer.style.maxHeight = gridContainerSize + "px";
     }
 
     // Event listener for draw
