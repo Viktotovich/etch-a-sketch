@@ -13,7 +13,7 @@
 
 <h1 class="title">Etch-A-Sketch</h1>
     
-<div id="gridContainer"></div>
+<div class="gridContainer"></div>
 
 <div class="buttonsContainer">
     <button class="rainbow">Rainbow Mode</button>
@@ -48,13 +48,12 @@
     //to make it colorful, make a loop of colors, and colors an array 
     //each iteration, -x to go back to the starting color so the loop would be infinite 
     
-    function getPosition() {
-  
-    }
 
-    function draw(e) {
-        let posX = e.clientX;
-        let posY = e.clientY;
+    function draw(event) {
+        let posX = event.clientX;
+        let posY = event.clientY;
+        alert(event.target.);
+        event.target.className = "changed";
     }
 
     
